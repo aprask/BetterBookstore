@@ -1,4 +1,4 @@
-package Commands;
+package User;
 
 public interface Command
 {
