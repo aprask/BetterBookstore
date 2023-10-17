@@ -9,10 +9,10 @@ public class Admin {
         while (i > 0)
         {
             System.out.println("Enter password:");
-            System.out.println("You have " + i + "Attempts Left:\n");
+            System.out.println("You have " + i + " Attempts Left:\n");
             String passwordAttempt = scan.next();
             if (passwordAttempt.equals(adminPassword)) {
-                System.out.println("You have successfully opened the store! ");
+                System.out.println("You have successfully opened the admin room! ");
                 this.passedTest = true;
                 break;
             }

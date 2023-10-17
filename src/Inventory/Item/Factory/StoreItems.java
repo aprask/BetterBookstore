@@ -5,7 +5,11 @@ import User.Command;
 import Inventory.Inventory;
 
 public class StoreItems implements Command {
-    Inventory inventory = new Inventory();
+    private Inventory inventory;
+    public StoreItems(Inventory inventory)
+    {
+        this.inventory = inventory;
+    }
     @Override
     public void execute() {
         System.out.println("Total Number of Items: " + inventory.getItemList().size());

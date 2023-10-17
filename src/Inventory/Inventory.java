@@ -25,10 +25,9 @@ public class Inventory
         this.itemList = itemList;
     }
 
-    public void inventoryItems()
+    public void displayMenu(int checkID)
     {
-        int tempVar = getSelectionID();
-        if(tempVar == 1)
+        if(checkID == 1)
         {
             System.out.println("Item Type: CD");
             for(int i = 0; i < this.getItemList().size(); i++)
@@ -42,7 +41,7 @@ public class Inventory
                 }
             }
         }
-        if(tempVar == 2)
+        if(checkID == 2)
         {
             System.out.println("Item Type: Book");
             for(int i = 0; i < this.getItemList().size(); i++)
@@ -57,7 +56,7 @@ public class Inventory
             }
 
         }
-        if(tempVar == 3)
+        if(checkID == 3)
         {
             System.out.println("Item Type: DVD");
             for(int i = 0; i < this.getItemList().size(); i++)

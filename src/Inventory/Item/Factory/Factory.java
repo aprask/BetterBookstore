@@ -2,44 +2,48 @@ package Inventory.Item.Factory;
 
 import Inventory.Item.Book;
 import Inventory.Item.CD;
-import Inventory.Item.Item;
 import Inventory.*;
+import User.Admin.Admin;
+
 import java.util.Scanner;
 
 public class Factory
 {
     private final Scanner scan = new Scanner(System.in);
+    private static final Inventory inventory = new Inventory();
+    private static final StoreItems storeItems = new StoreItems(inventory);
     private ItemType CD = ItemType.CD;
     private ItemType Book = ItemType.BOOK;
     private ItemType DVD = ItemType.DVD;
+    private final Admin admin = new Admin();
     public Factory()
     {
 
     }
     public void constructItem()
     {
-        System.out.println("Select an item type: ");
-        System.out.println("1 = CD\n2 = Book\n3 = DVD");
-        int newItemType = scan.nextInt();
-        itemDetails(newItemType);
-        do {
-            System.out.println("Would you like another item? ");
+        if(admin.didPass())
+        {
+            System.out.println("Select an item type: ");
             System.out.println("1 = CD\n2 = Book\n3 = DVD");
-            System.out.println("Type -1 to exit");
-            newItemType = scan.nextInt();
-            if(newItemType != -1)
+            int newItemType = scan.nextInt();
+            while(itemDetails(newItemType))
             {
-                itemDetails(newItemType);
+                System.out.println("Would you like another item? ");
+                System.out.println("1 = CD\n2 = Book\n3 = DVD");
+                System.out.println("Type -1 to exit");
+                newItemType = scan.nextInt();
+                if(newItemType == -1)
+                {
+                    storeItems.execute();
+                    break;
+                }
             }
-            else
-            {
-                break;
-            }
-        } while(itemDetails(newItemType));
+        }
+
     }
     public boolean itemDetails(int itemType)
     {
-        Inventory inventory = new Inventory();
         if(itemType == 1 || itemType == 2 || itemType == 3)
         {
             System.out.println("Enter item name: ");
@@ -104,5 +108,7 @@ public class Factory
     {
         Factory factory = new Factory();
         factory.constructItem();
+
+        inventory.displayMenu(1);
     }
 }
