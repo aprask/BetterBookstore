@@ -20,6 +20,7 @@ public class Factory
     }
     public void constructItem()
     {
+        System.out.println("Select an item type: ");
         System.out.println("1 = CD\n2 = Book\n3 = DVD");
         int newItemType = scan.nextInt();
         itemDetails(newItemType);
@@ -49,7 +50,7 @@ public class Factory
             System.out.println("Enter item ID: ");
             int itemID = scan.nextInt();
             if(itemType == getCD().ID)
-            {
+            { // todo fix null pointer
                 System.out.println("Enter the CD's length in seconds: ");
                 double cdLength = scan.nextDouble();
                 this.inventory.addItem(new CD(itemName,itemPrice,itemID,cdLength));
@@ -100,5 +101,10 @@ public class Factory
 
     public void setDVD(ItemType DVD) {
         this.DVD = DVD;
+    }
+    public static void main(String[] args)
+    {
+        Factory factory = new Factory();
+        factory.constructItem();
     }
 }
