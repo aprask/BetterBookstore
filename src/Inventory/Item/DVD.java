@@ -2,8 +2,8 @@ package Inventory.Item;
 
 public class DVD  extends Item{
     private double DVDLength;
-    public DVD(String itemName, double itemPrice, int id, double DVDLength) {
-        super(itemName, itemPrice, id);
+    public DVD(String itemName, double itemPrice, int id, double DVDLength, int itemSpecies) {
+        super(itemName, itemPrice, id, itemSpecies);
         this.DVDLength = DVDLength;
     }
 

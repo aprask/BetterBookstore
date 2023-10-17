@@ -5,17 +5,19 @@ public class Item {
     private double price;
     private boolean sold;
     private int ID;
+    private int itemSpecies;
 
     public Item(String itemName) {
         this.name = itemName;
         this.sold = false;
     }
 
-    public Item(String itemName, double itemPrice, int id) {
+    public Item(String itemName, double itemPrice, int id, int itemSpecies) {
         this.name = itemName;
         this.price = itemPrice;
         this.sold = false;
         this.ID = id;
+        this.itemSpecies = itemSpecies;
     }
 
     public String getName() {
@@ -48,5 +50,13 @@ public class Item {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    public int getItemSpecies() {
+        return itemSpecies;
+    }
+
+    public void setItemSpecies(int itemSpecies) {
+        this.itemSpecies = itemSpecies;
     }
 }

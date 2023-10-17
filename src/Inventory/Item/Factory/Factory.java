@@ -12,8 +12,6 @@ public class Factory
     private ItemType CD = ItemType.CD;
     private ItemType Book = ItemType.BOOK;
     private ItemType DVD = ItemType.DVD;
-    private Inventory inventory;
-
     public Factory()
     {
 
@@ -41,6 +39,7 @@ public class Factory
     }
     public boolean itemDetails(int itemType)
     {
+        Inventory inventory = new Inventory();
         if(itemType == 1 || itemType == 2 || itemType == 3)
         {
             System.out.println("Enter item name: ");
@@ -50,27 +49,26 @@ public class Factory
             System.out.println("Enter item ID: ");
             int itemID = scan.nextInt();
             if(itemType == getCD().ID)
-            { // todo fix null pointer
+            {
                 System.out.println("Enter the CD's length in seconds: ");
                 double cdLength = scan.nextDouble();
-                this.inventory.addItem(new CD(itemName,itemPrice,itemID,cdLength));
+                inventory.addItem(new CD(itemName,itemPrice,itemID,cdLength, CD.ID));
                 return true;
             }
             else if(itemType == getBook().ID)
             {
                 System.out.println("Enter the page count: ");
                 int pageCount = scan.nextInt();
-                this.inventory.addItem(new Book(itemName,itemPrice,itemID,pageCount));
+                inventory.addItem(new Book(itemName,itemPrice,itemID,pageCount, Book.ID));
                 return true;
             }
             else if(itemType == getDVD().ID)
             {
                 System.out.println("Enter the DVD's length in seconds: ");
                 double dvdLength = scan.nextDouble();
-                this.inventory.addItem(new CD(itemName,itemPrice,itemID,dvdLength));
+                inventory.addItem(new CD(itemName,itemPrice,itemID,dvdLength, DVD.ID));
                 return true;
             }
-
         }
         else
         {

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Inventory
 {
     ArrayList<Item> itemList = new ArrayList<Item>();
+    private static int selectionID;
     public Inventory()
     {
 
@@ -22,5 +23,58 @@ public class Inventory
 
     public void setItemList(ArrayList<Item> itemList) {
         this.itemList = itemList;
+    }
+
+    public void inventoryItems()
+    {
+        int tempVar = getSelectionID();
+        if(tempVar == 1)
+        {
+            System.out.println("Item Type: CD");
+            for(int i = 0; i < this.getItemList().size(); i++)
+            {
+                if(this.getItemList().get(i).getItemSpecies() == 1)
+                {
+                    System.out.println("-----------------------------------------------");
+                    System.out.println("Name: " + this.getItemList().get(i).getName());
+                    System.out.println("Price: " + this.getItemList().get(i).getPrice());
+                    System.out.println("-----------------------------------------------");
+                }
+            }
+        }
+        if(tempVar == 2)
+        {
+            System.out.println("Item Type: Book");
+            for(int i = 0; i < this.getItemList().size(); i++)
+            {
+                if(this.getItemList().get(i).getItemSpecies() == 2)
+                {
+                    System.out.println("-----------------------------------------------");
+                    System.out.println("Name: " + this.getItemList().get(i).getName());
+                    System.out.println("Price: " + this.getItemList().get(i).getPrice());
+                    System.out.println("-----------------------------------------------");
+                }
+            }
+
+        }
+        if(tempVar == 3)
+        {
+            System.out.println("Item Type: DVD");
+            for(int i = 0; i < this.getItemList().size(); i++)
+            {
+                if(this.getItemList().get(i).getItemSpecies() == 3)
+                {
+                    System.out.println("-----------------------------------------------");
+                    System.out.println("Name: " + this.getItemList().get(i).getName());
+                    System.out.println("Price: " + this.getItemList().get(i).getPrice());
+                    System.out.println("-----------------------------------------------");
+                }
+            }
+
+        }
+    }
+
+    public static int getSelectionID() {
+        return selectionID;
     }
 }
